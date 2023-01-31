@@ -33,14 +33,14 @@ class BooksController < ApplicationController
   end
 
   def delete
-    @book = Book.find(params[:id])
-    @book.destoy
+    book = Book.find(params[:id])
+    book.destoy
     redirect_to books_path
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title)
+    params.require(:book).permit(:title, :body)
   end
 end
