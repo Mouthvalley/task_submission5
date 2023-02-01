@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
+    # Book：クラス/.new：メソッド
     @book = Book.new
     @books = Book.all
     @user = current_user
@@ -14,12 +15,15 @@ class BooksController < ApplicationController
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
+      # redirect_to book_path(@book)：showアクション(book_path(@book))の機能を実行する
+      # render 'index'：indexのアクションを通さず/動かさずにindexのビューを表示させる
       render 'index'
     end
   end
 
   def show
     @book = Book.find(params[:id])
+    # @newbook = Book.new：books/showを参照
     @user = @book.user
   end
 

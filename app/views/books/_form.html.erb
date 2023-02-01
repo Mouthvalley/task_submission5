@@ -8,7 +8,10 @@
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
   <div class="form-group">
-    <!--f.submit(ボタンの名前=nil, オプション={})-->
-    <%= f.submit :button, class: 'btn btn-success' %>
+    <!--①f.submit(ボタンの名前=nil, オプション={})-->
+    <!--②f.submitは名前を指定しなければform_withが勝手に判断し、-->
+    <!-- →createアクションの場合：Create Bookと表記され-->
+    <!-- →updateアクションの場合：Update Bookと表記される-->
+    <%= f.submit class: 'btn btn-success' %>
   </div>
 <% end %>

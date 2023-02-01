@@ -1,6 +1,7 @@
 <!--①部分テンプレートは全てローカル変数-->
 <!--②部分テンプレート内は全て同じ表記((bjで統一する)-->
 <!--③renderで呼び出す側も部分テンプレートと同じ表記-->
+<!--?：true or false の条件を返す時？をつける-->
 <% if obj.errors.any? %>
   <div id="error_explanation">
     <h3><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
