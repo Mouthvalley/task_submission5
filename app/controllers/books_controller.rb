@@ -25,6 +25,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     # @newbook = Book.new：books/showを参照
     @user = @book.user
+    # BookComment：モデル名(modelsに記述)
+    @book_comment = BookComment.new
+    @new_book = Book.new
   end
 
   def edit
