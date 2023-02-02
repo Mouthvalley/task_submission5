@@ -1,3 +1,5 @@
+<!--部分テンプレートには、ローカル変数(@のインスタンス変数は使用しない)-->
+
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -16,6 +18,7 @@
         </td>
         <td><%= link_to book.title, book %></td>
         <td><%= book.body %></td>
+        <td>コメント数：<%= book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
