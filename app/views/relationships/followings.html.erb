@@ -11,11 +11,11 @@
   <tbody>
     <% @followings.each do |following| %>
       <tr>
-        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td><%= image_tag following.get_profile_image, size: '50x50' %></td>
         <td><%= following.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td>フォロー数: <%= following.followings.count %></td>
+        <td>フォロワー数: <%= following.followers.count %></td>
+        <td><%= link_to 'Show', following %></td>
       </tr>
     <% end %>
   </tbody>

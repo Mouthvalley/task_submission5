@@ -1,7 +1,4 @@
 <h2>Follower Users</h2>
-<% @followers.each do |following| %>
-    <%= following.name %>
-  <% end %>
 
 <table class='table'>
   <thead>
@@ -12,13 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <% users.each do |user| %>
+    <% @followers.each do |followers| %>
       <tr>
-        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-        <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= image_tag followers.get_profile_image, size: '50x50' %></td>
+        <td><%= followers.name %></td>
+        <td>フォロー数: <%= followers.followings.count %></td>
+        <td>フォロワー数: <%= followers.followers.count %></td>
+        <td><%= link_to 'Show', followers %></td>
       </tr>
     <% end %>
   </tbody>
