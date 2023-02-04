@@ -1,3 +1,8 @@
+<h2>Follower Users</h2>
+<% @followers.each do |following| %>
+    <%= following.name %>
+  <% end %>
+
 <table class='table'>
   <thead>
     <tr>
@@ -7,16 +12,12 @@
     </tr>
   </thead>
   <tbody>
-    <!--users(全てのuser情報)を.each do |user|(一つ一つ展開していく)-->
     <% users.each do |user| %>
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
         <td>フォロー数: <%= user.followings.count %></td>
         <td>フォロワー数: <%= user.followers.count %></td>
-        <!--user(部分テンプレートから持ってきた空のもの): user(値が入っているもの)-->
-        <!--user(_buttonのuser): user(users.each do |user|の|user|)-->
-        <td><%= render 'relationships/button', user: user %></td>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>

@@ -10,16 +10,34 @@
   </tr>
   <tr>
     <th>follos</th>
-    <th><%= user.followings.count %></th>
+    <th>
+      <!--link_to doの場合は、link_to ""(文字列)は使えない do と endの間に表示させてたいものを記述する-->
+      <%= link_to user_followings_path(user.id) do %>
+        <%= user.followings.count %>
+      <% end %>
+    </th>
   </tr>
   <tr>
+
     <th>followers</th>
-    <th><%= user.followers.count %></th>
+    <th>
+      <%= link_to user_followers_path(user.id) do %>
+        <%= user.followers.count %>
+      <% end %>
+    </th>
   </tr>
 </table>
 
 <div class='row'>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fas fa-user-cog"></i>
+  <!--request.pathは現在のURL-->
+  <!--!= は~ではない-->
+  <!--#{}(変数展開)は括弧{}の中身を文字列として扱う-->
+  <% if request.path != "/users/#{user.id}" %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+  <% end %>
+  <% else %>
+  <!--user: userの右(user)はここで定義しなくても反応する。なぜなら、/users/show.html.erbにて render 'info', user: @user の@userで既に定義されているため。-->
+    <%= render 'relationships/button', user: user %>
   <% end %>
 </div>
