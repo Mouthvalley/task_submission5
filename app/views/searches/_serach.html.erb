@@ -1,8 +1,11 @@
 <% if user_signed_in? %>
   <div class="searches_form">
+      <!--url: search_path＝検索内容を、先ほど作成したルーティングに送信-->
     <%= form_with url: searches_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
+        <!--今回は複数のモデル(UserモデルとBookモデル)を検索できるように実装する為、選択したモデルをrangeとしてアクションに送っている。-->
       <%= f.select :range, options_for_select([['User'], ['Book']]) %>
+        <!--検索手法を定義(カンマ区切りで複数定義)。選択した検索手法をsearchとしてアクションに送っている。-->
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
