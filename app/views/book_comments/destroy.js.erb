@@ -1,0 +1,6 @@
+<!--#(シャープ)=id, .(ドット)=class-->
+$("#book_<%= @book.id %> .comments-count").html("コメント数: <%= @book.book_comments.count %>");
+  <!--_comment.html.erb内の "form_with model: [book, book_comment]"で[book]と[book_comment]を指定しているため、-->
+<!--ここでもでもbook: @book, book_comment: @book_comment 二つ指定する必要がある↓↓↓。-->
+$(".book_comments").html("<%= j(render 'book_comments/comment', book: @book, book_comment: @book_comment) %>");
+$("#book_comment_comment").val("");
