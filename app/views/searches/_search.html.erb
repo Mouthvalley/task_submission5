@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="searches_form">
       <!--url: search_path＝検索内容を、先ほど作成したルーティングに送信-->
-    <%= form_with url: searches_path, local: true, method: :get do |f| %>
+    <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
         <!--今回は複数のモデル(UserモデルとBookモデル)を検索できるように実装する為、選択したモデルをrangeとしてアクションに送っている。-->
       <%= f.select :range, options_for_select([['User'], ['Book']]) %>
