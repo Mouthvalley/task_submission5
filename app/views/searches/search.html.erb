@@ -1,0 +1,9 @@
+<!--searches_controller.rb内のsearchアクション(def search)を呼び出す必要があるので、ファイル名もsearch(.html.erb)で統一する必要がある。-->
+<!--エラー：ファイル名がsearch_results.html.erbだったため、searchアクションが起動しなかった。-->
+<% if @model == 'user' %>
+	<h3>Users search for "<%= @content %>"</h3>
+  <%= render 'users/index', users: @records %>
+<% elsif @model == 'book' %>
+	<h3>Books search for "<%= @content %>"</h3>
+  <%= render 'books/index', books: @records %>
+<% end %>
